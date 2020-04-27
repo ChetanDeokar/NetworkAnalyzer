@@ -1,6 +1,5 @@
 from os.path import abspath
 
-from pyspark import HiveContext
 from pyspark import SQLContext
 from pyspark import SparkContext, sql
 
@@ -25,8 +24,8 @@ class SparkUtility(object):
             .builder \
             .master(self.master_name)\
             .appName(self.app_name) \
-            .enableHiveSupport()\
             .getOrCreate()
+            #.enableHiveSupport()\
             #.config("spark.sql.warehouse.dir", warehouse_location)\
 
     def get_spark_session(self):
